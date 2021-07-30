@@ -1,19 +1,19 @@
 provider "google" {
 
-  project = "terraform-321413"
-  region  = "us-central1"
-  zone    = "us-central1-c"
+  project = var.project
+  region  = var.region
+  zone    = var.zone
 }
 
 resource "google_compute_network" "vpc_network" {
-  name = "terraform-network-1"
+  name = var.vpc_name
 } 
 
 terraform {
   backend "gcs" {
     bucket = "terraform-321413"
     prefix = "state"
-   }
+}
 }
 
 resource "google_compute_instance" "vm_instance" {
