@@ -1,7 +1,5 @@
 provider "google" {
 
-  # credentials = file("playground-s-11-c97dfb50-9228e41f2689.json")
-
   project = "terraform-321413"
   region  = "us-central1"
   zone    = "us-central1-c"
