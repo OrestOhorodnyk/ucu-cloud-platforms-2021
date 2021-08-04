@@ -1,7 +1,7 @@
 FROM ubuntu:20.04
 
 ENV TERRAFORM_VERSION=1.0.1
-ENV GOOGLE_APPLICATION_CREDENTIALS="/workspaces/ucu-cloud-platforms-2021/hw1/terraform/key/key.json"
+ENV GOOGLE_APPLICATION_CREDENTIALS="/workspaces/ucu-cloud-platforms-2021/hw2/task2/terraform/key/key.json"
 
 RUN apt-get -y update
 RUN apt-get -y install \
