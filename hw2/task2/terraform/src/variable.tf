@@ -1,5 +1,5 @@
 variable "project" {
-  default = "playground-s-11-db5b7aac"
+  default = "terraform-321413"
 }
 
 variable "region" {

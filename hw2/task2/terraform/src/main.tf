@@ -7,7 +7,7 @@ provider "google" {
 
 terraform {
   backend "gcs" {
-    bucket = "terraform-3214131"
+    bucket = "terraform-32141312"
     prefix = "state"
 }
 }
@@ -35,7 +35,7 @@ resource "google_storage_bucket_object" "archive" {
 
 resource "google_cloudfunctions_function" "function" {
   name        = "create-file-on-gcs"
-  description = "My function"
+  description = "Functions store request body to a file on GCS"
   runtime     = "python39"
   project     = "${var.project}"
 
@@ -54,15 +54,15 @@ resource "google_cloudfunctions_function" "function" {
   }
 }
 
-# IAM entry for a single user to invoke the function
-resource "google_cloudfunctions_function_iam_member" "invoker" {
-  project        = google_cloudfunctions_function.function.project
-  region         = google_cloudfunctions_function.function.region
-  cloud_function = google_cloudfunctions_function.function.name
+# # IAM entry for a single user to invoke the function
+# resource "google_cloudfunctions_function_iam_member" "invoker" {
+#   project        = google_cloudfunctions_function.function.project
+#   region         = google_cloudfunctions_function.function.region
+#   cloud_function = google_cloudfunctions_function.function.name
 
-  role   = "roles/cloudfunctions.invoker"
-  member = "user:cloud_user_p_2b2ff1ed@linuxacademygclabs.com"
-}
+#   role   = "roles/cloudfunctions.invoker"
+#   member = "user:terraform-sa@terraform-321413.iam.gserviceaccount.com"
+# }
 
 # # IAM entry for all users to invoke the function
 # resource "google_cloudfunctions_function_iam_member" "invoker" {

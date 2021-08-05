@@ -1,6 +1,7 @@
 ## *Prerequisites*: 
 1. Enabled Cloud Function 
 1. Enabled Cloud Build API 
+1. Cteate a bucket and a folder for terraform state (e. g. terraform-32141312/state)
 1. Service account key.json is pleased to terraform/key folder. Required roles: Cloud Functions Admin, 
 1. update the `ucu-cloud-platforms-2021/hw2/task2/terraform/src/variable.tf` with correct values.
 
