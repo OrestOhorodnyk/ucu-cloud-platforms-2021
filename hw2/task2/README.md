@@ -25,3 +25,22 @@ curl --location --request POST '<the function url>' \
     "body":"some alue here"
 }'
 ```
+
+## *The Screenshots*
+1. Function is deployed to your cloud account
+
+	![alt text](https://github.com/OrestOhorodnyk/ucu-cloud-platforms-2021/blob/main/hw2/task2/screenshots/code.png?raw=true)
+
+1. Function could be triggered via HTTP request
+
+	![alt text](https://github.com/OrestOhorodnyk/ucu-cloud-platforms-2021/blob/main/hw2/task2/screenshots/with-jwt.png?raw=true)
+
+1. Function does not allow anonymous access
+
+	![alt text](https://github.com/OrestOhorodnyk/ucu-cloud-platforms-2021/blob/main/hw2/task2/screenshots/no-jwt.png?raw=true)
+
+1. Content of a request is stored as json file in Object Store and New requests does not override any file in Object Store
+
+	![alt text](https://github.com/OrestOhorodnyk/ucu-cloud-platforms-2021/blob/main/hw2/task2/screenshots/gcs.png?raw=true)
+	![alt text](https://github.com/OrestOhorodnyk/ucu-cloud-platforms-2021/blob/main/hw2/task2/screenshots/content1.png?raw=true)
+	![alt text](https://github.com/OrestOhorodnyk/ucu-cloud-platforms-2021/blob/main/hw2/task2/screenshots/content2.png?raw=true)
