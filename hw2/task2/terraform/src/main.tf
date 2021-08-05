@@ -7,7 +7,7 @@ provider "google" {
 
 terraform {
   backend "gcs" {
-    bucket = "terraform-321413"
+    bucket = "terraform-3214131"
     prefix = "state"
 }
 }
@@ -55,21 +55,21 @@ resource "google_cloudfunctions_function" "function" {
 }
 
 # IAM entry for a single user to invoke the function
-# resource "google_cloudfunctions_function_iam_member" "invoker" {
-#   project        = google_cloudfunctions_function.function.project
-#   region         = google_cloudfunctions_function.function.region
-#   cloud_function = google_cloudfunctions_function.function.name
-
-#   role   = "roles/cloudfunctions.invoker"
-#   member = "user:myFunctionInvoker@example.com"
-# }
-
-# IAM entry for all users to invoke the function
 resource "google_cloudfunctions_function_iam_member" "invoker" {
   project        = google_cloudfunctions_function.function.project
   region         = google_cloudfunctions_function.function.region
   cloud_function = google_cloudfunctions_function.function.name
 
   role   = "roles/cloudfunctions.invoker"
-  member = "allUsers"
+  member = "user:cloud_user_p_2b2ff1ed@linuxacademygclabs.com"
 }
+
+# # IAM entry for all users to invoke the function
+# resource "google_cloudfunctions_function_iam_member" "invoker" {
+#   project        = google_cloudfunctions_function.function.project
+#   region         = google_cloudfunctions_function.function.region
+#   cloud_function = google_cloudfunctions_function.function.name
+
+#   role   = "roles/cloudfunctions.invoker"
+#   member = "allUsers"
+# }
