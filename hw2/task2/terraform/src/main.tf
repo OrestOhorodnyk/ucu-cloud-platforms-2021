@@ -7,13 +7,28 @@ provider "google" {
 
 terraform {
   backend "gcs" {
-    bucket = "terraform-32141312"
+    bucket = "terraform-321412"
     prefix = "state"
 }
 }
 
 resource "google_storage_bucket" "bucket" {
   name          = var.cloud-function-bucket
+  location      = "US"
+  force_destroy = true
+
+  lifecycle_rule {
+    condition {
+      age = 3
+    }
+    action {
+      type = "Delete"
+    }
+  }
+}
+
+resource "google_storage_bucket" "function-files" {
+  name          = "function-files_${var.project}"
   location      = "US"
   force_destroy = true
 
@@ -50,7 +65,7 @@ resource "google_cloudfunctions_function" "function" {
   }
 
   environment_variables = {
-    BUCKET_NAME = var.cloud-function-bucket
+    BUCKET_NAME = google_storage_bucket.function-files.name
   }
 }
 
