@@ -1,7 +1,8 @@
-FROM ubuntu:20.04
+FROM python
 
-ENV TERRAFORM_VERSION=1.0.1
-ENV GOOGLE_APPLICATION_CREDENTIALS="/workspaces/ucu-cloud-platforms-2021/hw3/task1/terraform/key/key.json"
+ENV TERRAFORM_VERSION=1.0.4
+
+ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get -y update
 RUN apt-get -y install \
@@ -49,6 +50,9 @@ RUN apt-get update && \
     google-cloud-sdk-bigtable-emulator \
     google-cloud-sdk-datastore-emulator \
     google-cloud-sdk-app-engine-python-extras
+
+# RUN pip install --upgrade google-cloud-pubsub
+# RUN pip install tweepy
 
     
 

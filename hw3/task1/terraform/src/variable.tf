@@ -10,6 +10,6 @@ variable "zone"  {
   default = "us-central1-c"
 }
 
-variable "cloud-function-bucket" {
-  default = "cloud-function-playground-s-11-db5b7aac"
+variable "source_code" {
+  default = "source_code-11-db5b7aac"
 } 
